@@ -1,10 +1,5 @@
-import {
-	Navigate,
-	Route,
-	Routes,
-	useNavigate,
-} from "react-router-dom";
-import { Suspense, lazy, useEffect } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import { lazy, useEffect } from "react";
 import { Layout } from "./layout";
 import "./App.css";
 
@@ -24,28 +19,6 @@ const Redirect = () => {
 
 function App() {
 	return (
-		// <Routes>
-		// 	<Route path="/" element={<Layout />}>
-		// 		<Route index element={<Home />} />
-		// 		<Route
-		// 			path="catalog"
-		// 			element={
-		// 				<Suspense>
-		// 					<Catalog />
-		// 				</Suspense>
-		// 			}
-		// 		/>
-		// 		<Route
-		// 			path="favorites"
-		// 			element={
-		// 				<Suspense>
-		// 					<Favorites />
-		// 				</Suspense>
-		// 			}
-		// 		/>
-		// 		<Route path="*" element={<Navigate to="/" replace />} />
-		// 	</Route>
-		// </Routes>
 		<Routes>
 			<Route path="/" element={<Layout />}>
 				<Route index element={<Home />}></Route>
@@ -53,8 +26,8 @@ function App() {
 				<Route path="favorites" element={<Favorites />}></Route>
 				{/* <Route path="*" element={<Home />}></Route> */}
 			</Route>
+			{/* <Route path="*" element={<Navigate to="/" replace />} /> */}
 			<Route path="*" element={<Redirect />}></Route>
-			//{" "}
 		</Routes>
 	);
 }
