@@ -1,1 +1,0 @@
-import{j as e,C as s}from"./index-BXFIfivP.js";const o="_homePage_2b2d1_1",a={homePage:o},n=()=>e.jsx("div",{className:a.homePage,children:e.jsx(s,{children:e.jsx("div",{children:"HomePage"})})});export{n as default};
