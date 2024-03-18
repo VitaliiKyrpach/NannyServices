@@ -1,7 +1,8 @@
 import { Container } from "../../Container/Container";
+import css from './HomePage.module.css'
 
 const Home = () => {
-	return <div>
+	return <div className={css.homePage}>
 	<Container>
 		<div>HomePage</div>
 	</Container>

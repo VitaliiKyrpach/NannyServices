@@ -11,5 +11,5 @@ export const fetchData = async () => {
 	} else {
 		alert("error");
 	}
-	return;
+	return snapshot.val();
 };
