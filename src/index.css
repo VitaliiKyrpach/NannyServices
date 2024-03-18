@@ -2,14 +2,18 @@
 	--color-primary-dark: ;
 	--color-secondary-dark: ;
 	--color-primary-lightest: #fff;
-	--color-primary-light: #FBFBFB;
+	--color-primary-light: #fbfbfb;
 	--color-primary-lighter: rgba(251, 251, 251, 0.4);
 	--color-secondary-darker: ;
 	--color-light: rgba(17, 16, 28, 0.2);
 	--color-accent-lighter: rgb(186, 232, 222);
 	--color-accent: #103931;
+	--color-accent-hover: #052b23;
+	--color-accent-light: rgba(16, 57, 49, 0.2);
 	--color-secondary-accent: rgba(240, 63, 59, 0.2);
-	--color-back: #F3F3F3;
+	--color-back: #f3f3f3;
+	--color-star: #ffc531;
+	--color-price: #38cd3e;
 }
 * {
 	box-sizing: border-box;
@@ -32,7 +36,7 @@ img {
 	height: auto;
 	object-fit: cover;
 }
-a{
+a {
 	text-decoration: none;
 }
 body {
