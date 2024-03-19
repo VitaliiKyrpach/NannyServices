@@ -44,6 +44,7 @@
 	position: relative;
 	display: flex;
 	gap: 4px;
+	align-items: center;
 	/* max-width: 100%; */
 }
 .underline {
@@ -57,7 +58,18 @@
 	border-right: 2px solid var(--color-light);
 }
 .nameWrapper {
+	color: var(--color-secondary-dark);
 	margin-bottom: 24px;
+}
+.name {
+	color: var(--color-primary-dark);
+	line-height: 1;
+}
+.black {
+	color: var(--color-primary-dark);
+}
+.about {
+	color: var(--color-light-b);
 }
 .infoWrapper {
 	display: flex;
@@ -66,6 +78,7 @@
 	margin-bottom: 24px;
 }
 .infoItem {
+	color: var(--color-secondary-dark);
 	background-color: var(--color-back);
 	border-radius: 24px;
 	padding: 8px 16px;
@@ -110,7 +123,7 @@
 }
 .nameLogo {
 	font-size: 20px;
-	font-weight: 500;
+	line-height: 1;
 	width: 44px;
 	height: 44px;
 	color: var(--color-accent);
@@ -139,10 +152,15 @@
 	line-height: 1.28;
 }
 .revName {
-	font-size: 16px;
 	line-height: 1.5;
-	font-weight: 500;
 	margin-bottom: 4px;
+}
+.rating {
+	line-height: 1.28;
+}
+.comment {
+	font-weight: 400;
+	line-height: 1.25;
 }
 .appointment {
 	font-weight: 500;
@@ -154,7 +172,7 @@
 	border-radius: 30px;
 	border: none;
 	cursor: pointer;
-	transform: background-color 150ms linear;
+	transition: background-color 150ms linear;
 }
 .appointment:hover {
 	background-color: var(--color-accent-hover);

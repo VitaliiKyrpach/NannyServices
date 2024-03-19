@@ -2,7 +2,10 @@
 import css from "./CatalogItem.module.css";
 import svg from "../../img/sprite.svg";
 import { useState } from "react";
+import { Appointment } from "../Appointment/Appointment";
+import { Modal } from "../Modal/Modal";
 export const CatalogItem = ({ data }) => {
+	const [isModal, setIsModal] = useState(false);
 	const [ismore, setIsmore] = useState(false);
 	const [like, setLike] = useState(false);
 	const originalDate = new Date(data.birthday);
@@ -13,6 +16,13 @@ export const CatalogItem = ({ data }) => {
 
 	const showMore = () => {
 		setIsmore(!ismore);
+	};
+
+	const openModal = () => {
+		setIsModal(true);
+	};
+	const closeModal = () => {
+		setIsModal(false);
 	};
 
 	const handleLike = () => {
@@ -42,14 +52,9 @@ export const CatalogItem = ({ data }) => {
 					</li>
 					<li className={css.techItem}>
 						Price / 1 hour:{" "}
-						<span className={css.price}>
-							{data.price_per_hour}&#36;
-						</span>
+						<span className={css.price}>{data.price_per_hour}$</span>
 					</li>
 				</ul>
-				{/* <svg className={css.heart}>
-					<use href={`${svg}#icon-heart`}></use>
-				</svg> */}
 				<svg
 					className={`${css.heart} ${like && css.heartActive}`}
 					onClick={handleLike}
@@ -72,23 +77,33 @@ export const CatalogItem = ({ data }) => {
 			<div>
 				<div className={css.nameWrapper}>
 					<p>Nanny</p>
-					<h2>{data.name}</h2>
+					<h2 className={css.name}>{data.name}</h2>
 				</div>
 				<ul className={css.infoWrapper}>
 					<li className={css.infoItem}>
 						Age:{" "}
-						<span className={css.underline}>{differenceInYears}</span>
+						<span className={`${css.underline} ${css.black}`}>
+							{differenceInYears}
+						</span>
 					</li>
 					<li className={css.infoItem}>
-						Experience: {data.experience}
+						Experience:{" "}
+						<span className={css.black}>{data.experience}</span>
 					</li>
-					<li className={css.infoItem}>Kids Age: {data.kids_age}</li>
-					<li className={css.infoItem}>Characters: {characters}</li>
 					<li className={css.infoItem}>
-						Education: {data.education}
+						Kids Age:{" "}
+						<span className={css.black}>{data.kids_age}</span>
+					</li>
+					<li className={css.infoItem}>
+						Characters:{" "}
+						<span className={css.black}>{characters}</span>
+					</li>
+					<li className={css.infoItem}>
+						Education:{" "}
+						<span className={css.black}>{data.education}</span>
 					</li>
 				</ul>
-				<p>{data.about}</p>
+				<p className={css.about}>{data.about}</p>
 				{!ismore && (
 					<button
 						className={css.more}
@@ -117,16 +132,26 @@ export const CatalogItem = ({ data }) => {
 											</p>
 										</div>
 									</div>
-									<p>{item.comment}</p>
+									<p className={css.comment}>{item.comment}</p>
 								</li>
 							))}
 						</ul>
-						<button className={css.appointment} type="button">
+						<button
+							className={css.appointment}
+							type="button"
+							onClick={openModal}
+						>
 							Make an appointment
 						</button>
 					</div>
 				)}
 			</div>
+			{isModal && (
+				<Modal closeModal={closeModal}>
+					<Appointment img={data.avatar_url} name={data.name} />
+				</Modal>
+			)}
+			;
 		</li>
 	);
 };
