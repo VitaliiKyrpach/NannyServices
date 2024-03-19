@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchData } from "../../../firebase/fetch";
 import { Container } from "../../Container/Container";
 import { CatalogList } from "../../CatalogList/CatalogList";
+import { CatalogFilter } from "../../CatalogFilter/CatalogFilter";
 
 const Catalog = () => {
 	const [items, setItems] = useState([]);
@@ -21,7 +22,8 @@ const Catalog = () => {
     }, [])
 	return <div>
 		<Container>
-		<CatalogList data={items} />
+			<CatalogFilter/>
+			<CatalogList data={items} />
 		</Container>
 		</div>;
 };
