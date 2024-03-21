@@ -12,7 +12,7 @@ import {
 	REGISTER,
 } from "redux-persist";
 
-import { nanniesReducer } from "./slice";
+import { nanniesReducer } from "./nanniesSlice";
 
 const nanniesPersistConfig = {
 	key: "nannies",

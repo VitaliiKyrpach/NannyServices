@@ -1,18 +1,33 @@
 /* eslint-disable react/prop-types */
 import css from "./CatalogItem.module.css";
 import svg from "../../img/sprite.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Appointment } from "../Appointment/Appointment";
 import { Modal } from "../Modal/Modal";
+import { useDispatch, useSelector } from "react-redux";
+import { selectFavorites } from "../../redux/nanniesSelectors";
+import { addNanny, removeNanny } from "../../redux/nanniesSlice";
 export const CatalogItem = ({ data }) => {
 	const [isModal, setIsModal] = useState(false);
 	const [ismore, setIsmore] = useState(false);
 	const [like, setLike] = useState(false);
+
+	const dispatch = useDispatch();
+	const favorites = useSelector(selectFavorites);
+
 	const originalDate = new Date(data.birthday);
 	const today = new Date();
 	const originalYear = originalDate.getFullYear();
 	const todayYear = today.getFullYear();
 	const differenceInYears = todayYear - originalYear;
+
+	const isLiked =
+		!!favorites.length &&
+		!!favorites.find((card) => card.id === data.id);
+
+	useEffect(() => {
+		isLiked ? setLike(true) : setLike(false);
+	}, [isLiked]);
 
 	const showMore = () => {
 		setIsmore(!ismore);
@@ -26,14 +41,15 @@ export const CatalogItem = ({ data }) => {
 	};
 
 	const handleLike = () => {
-		// !isLiked
-		// 	? dispatch(addCard(data))
-		// 	: dispatch(removeCard(data.id));
+		!isLiked
+			? dispatch(addNanny(data))
+			: dispatch(removeNanny(data.id));
 		setLike(!like);
 	};
 
 	const characters = data.characters.join(", ");
 	const rating = Math.round(data.rating * 10) / 10;
+
 	return (
 		<li className={css.card}>
 			<div className={css.techWrapper}>
@@ -55,10 +71,7 @@ export const CatalogItem = ({ data }) => {
 						<span className={css.price}>{data.price_per_hour}$</span>
 					</li>
 				</ul>
-				<svg
-					className={`${css.heart} ${like && css.heartActive}`}
-					onClick={handleLike}
-				>
+				<svg className={css.heart} onClick={handleLike}>
 					{like ? (
 						<use href={`${svg}#icon-heart-active`}></use>
 					) : (
@@ -151,7 +164,6 @@ export const CatalogItem = ({ data }) => {
 					<Appointment img={data.avatar_url} name={data.name} />
 				</Modal>
 			)}
-			;
 		</li>
 	);
 };

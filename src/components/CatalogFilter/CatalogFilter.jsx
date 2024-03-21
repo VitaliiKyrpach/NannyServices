@@ -7,7 +7,7 @@ export const CatalogFilter = () => {
 	const toggleOpen = () => {
 		setIsOpen((prev) => !prev);
 	};
-
+	console.log(isPick);
 	const handlePick = (e) => {
 		if (e.target.nodeName !== "LI") return;
 		// if (!e.target.textContent) return;
@@ -64,7 +64,7 @@ export const CatalogFilter = () => {
 							isPick === "Less than 10$" && css.active
 						}`}
 					>
-						Less than 10{" "}
+						Less than 10$
 					</li>
 					<li
 						className={`${css.filterItem} ${
