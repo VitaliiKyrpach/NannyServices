@@ -1,0 +1,1 @@
+import{u as a,j as s,C as o}from"./index-DTSEUVC_.js";import{b as e,C as r,a as i}from"./CatalogFilter-BUrUe0YX.js";const c=()=>{const t=a(e);return console.log(t),s.jsx("div",{children:s.jsxs(o,{children:[s.jsx(r,{}),s.jsx(i,{data:t})]})})};export{c as default};
