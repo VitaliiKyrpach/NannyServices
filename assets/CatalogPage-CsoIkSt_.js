@@ -1,0 +1,1 @@
+import{u as e,a as o,r,f as n,j as s,C as c}from"./index-CzCgLGnx.js";import{s as i,C as l,a as x}from"./CatalogFilter-B-uRqDpg.js";const u=()=>{const a=e(i),t=o();return console.log(a),r.useEffect(()=>{t(n())},[t]),s.jsx("div",{children:s.jsxs(c,{children:[s.jsx(l,{}),s.jsx(x,{data:a})]})})};export{u as default};
