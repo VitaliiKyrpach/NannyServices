@@ -23,6 +23,7 @@
 	--color-light: rgba(17, 16, 28, 0.2);
 	--color-light-a: rgba(17, 16, 28, 0.3);
 	--color-light-b: rgba(17, 16, 28, 0.5);
+	--color-light-c: rgba(17, 16, 28, 0.1);
 	--color-light-a-hover: rgba(17, 16, 28, 0.6);
 	--color-accent-lighter: rgb(186, 232, 222);
 	--color-accent: #103931;
@@ -32,6 +33,7 @@
 	--color-back: #f3f3f3;
 	--color-star: #ffc531;
 	--color-price: #38cd3e;
+	--color-error:#F03F3B
 }
 * {
 	box-sizing: border-box;

@@ -29,3 +29,14 @@
 	stroke: var(--color-primary-dark); */
 	cursor: pointer;
 }
+.modalWrapper{
+	overflow: auto;
+	max-height: calc(80vh - 128px);
+}
+.modalWrapper::-webkit-scrollbar {
+	width: 4px;
+}
+.modalWrapper::-webkit-scrollbar-thumb {
+	background-color: var(--color-light-c);
+	border-radius: 10px;
+}
